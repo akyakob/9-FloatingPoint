@@ -1,0 +1,10 @@
+(figure out the mask that would work to AND it with, for the sign bit you need the
+32nd bit so you find the 32 bit binary number to AND it with and put it in hex)
+ex: if you had 1010, you would AND it with 1000 and put it in hex, when you AND 
+it then 1 AND 1 will be 1 so you'll see that it's a negative
+#define SIGN_MASK         0x80000000  //extract the sign bit
+#define SIGN_SHIFT        31          //number of bits to shift the sign mask
+#define EXPONENT_MASK     0x7f800000  //extract exponent bit
+#define EXPONENT_SHIFT    23          //number of bits to shift the exponent mask, EXPONENT_MASK minus EXPONENT_BIAS
+#define EXPONENT_BIAS     127         //value of the bias which is 127
+#define SIGNIFICAND_MASK  0x007fffff  //23 bits of significand, //extract the significand 

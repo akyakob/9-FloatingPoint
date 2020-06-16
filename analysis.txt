@@ -1,0 +1,51 @@
+analysis.txt
+
+./quadTest -a 1 -b 0 -c 1
+
+TIMINGS, 500,000 ITERATIONS
+
+------------with -O0
+Elasped time: 5.000000e-02
+Repeat timer: 1.000000e-07
+The roots of: 1x**2 + 0x + 1
+Root1: 0 + 1i
+Root2: -0 + -1i
+
+------------with -O1
+Elasped time: 3.000000e-02
+Repeat timer: 6.000000e-08
+The roots of: 1x**2 + 0x + 1
+Root1: 0 + 1i
+Root2: -0 + -1i
+
+------------with -O2
+Elasped time: 3.000000e-02
+Repeat timer: 6.000000e-08
+The roots of: 1x**2 + 0x + 1
+Root1: 0 + 1i
+Root2: -0 + -1i
+
+------------with -O3
+Elasped time: 3.000000e-02
+Repeat timer: 6.000000e-08
+The roots of: 1x**2 + 0x + 1
+Root1: 0 + 1i
+Root2: -0 + -1i
+
+Performance was affected by the optimization levels that were used.
+The optimizations worked as expected. With -O3 the timings were the quickest.
+As expected, -O0 had the slowest timings since there were
+no optimizations. -O1 and -O2 had faster timings than -O0 which was also 
+expected since -O1 is moderate optimization and -O2 is full optimization. The
+-O3 optimization was the quickest because it is does full optimization, 
+aggressive inlining, and vectorization. The complex numbers had to be represented
+using a struct called polynomial that had nterms and polyCoef. 
+A polynomial (from rootfinding.h) has nterms and polyCoefs. polyCoefs are of
+type double complex (which you can have other types like int complex) but
+there are 3 nterms and each is in complex form and you can write something in
+int or float form and still have it be complex like 1 will technically be 1 + 0i.
+Adding/subtracting with complex numbers can eventually have issues when there
+is overflow involved so that needs to be accounted for but the numbers I 
+used were small enough so overflow wasn't a problem. This brings up the issue
+of how the whole number can't always be represented because they can only
+be represented in a finite way. 

@@ -1,0 +1,15 @@
+ 
+Testing ./quadTest -a 0 -b 0 -c 1
+'a' should be nonzero.
+ 
+Testing ./quadTest -a 1 -b 0
+Not enough arguments
+quadTest is a quadratic solver that solves for the roots of a polynomial
+Format should be ./quadTest -a Avalue -b Bvalue -c Cvalue
+ 
+Testing ./quadTest -a 1 -b 0 -c 1
+Elasped time: 3.000000e-02
+Repeat timer: 6.000000e-08
+The roots of: 1.00x**2 + 0.00x + 1.00
+Root1: 0.00 + 1.00i
+Root2: -0.00 + -1.00i
